@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavBar from "../src/Components/NavBar";
+import { Route, Routes } from "react-router-dom";
+import InsertForm from "./Components/InsertForm";
+import ReadForm from "./Components/ReadForm";
+import DeleteForm from "./Components/DeleteForm";
+import UpdateForm from "./Components/UpdateForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<InsertForm />}></Route>
+        <Route path="/read" element={<ReadForm />}></Route>
+        <Route path="/delete" element={<DeleteForm />}></Route>
+        <Route path="/update" element={<UpdateForm />}></Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
